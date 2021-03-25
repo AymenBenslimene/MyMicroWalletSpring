@@ -2,12 +2,15 @@ package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,8 +29,10 @@ public class Client implements Serializable {
 	
 	private Sex Sex;
 	
+	
 	private Marital_Status Marital_Status;
 	private Job Job_Title ;
+
 	private int Phone_Number;
 	
 	private double Salary;
@@ -50,9 +55,17 @@ public class Client implements Serializable {
 	// private Picture Cin Picture
 	// private Picture Passport
 	
-	// one to many Dialogue_Room
-	// one to many Account
-	// one to many Claim
+	// one to many unidirectionnelle Dialogue_Room
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Dialogue_Room> dialogue_room;
+	
+	// one to many bidirectionnelle Account
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="Account")
+	private Account account;
+	// one to many uni Claim
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Claims> claim;
 	
 	
 	

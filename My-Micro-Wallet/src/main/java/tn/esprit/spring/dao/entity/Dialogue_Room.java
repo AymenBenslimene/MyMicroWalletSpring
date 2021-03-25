@@ -31,8 +31,8 @@ public class Dialogue_Room implements Serializable {
 	
 	//private Content content;
 	
-	//many to one with client
-	// Many to one with Agent 
+	//many to one with client : no declaration needed
+	// Many to one with Agent : no declaration needed
 	
 	
 }

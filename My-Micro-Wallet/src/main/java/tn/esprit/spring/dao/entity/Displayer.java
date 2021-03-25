@@ -23,5 +23,5 @@ public class Displayer implements Serializable {
  	//public Date time_to_display;
  	public String redirection; 
  	
- 	// Many to one with admin 
+ 	// Many to one with admin : no declaration needed
 }

@@ -2,11 +2,15 @@ package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,8 +41,17 @@ public class Account implements Serializable{
 	// private set Activities; 
 	
 	//many to one with client
-	// one to many with transaction 
+	//@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
+	Client client;
+	// one to many uni with transaction 
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Transaction> transaction;
 	// one to many with loans 
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Loans> loans;
+	
+	
 	
 	
 }

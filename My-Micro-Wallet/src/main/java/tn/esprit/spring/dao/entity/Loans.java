@@ -1,11 +1,14 @@
 package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Loans implements Serializable{
@@ -22,7 +25,12 @@ public class Loans implements Serializable{
 	
 	//private Ultimate_D ultimate_decision ; 
 
-	//many to one to account 
-	//one to many to payment 
-	//one to many to Contract 
+	//many to one to account : no declaration needed
+	
+	//one to many uni to payment 
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Payment> payment;
+	//one to many uni to Contract 
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Contract> dialogue_room;
 }

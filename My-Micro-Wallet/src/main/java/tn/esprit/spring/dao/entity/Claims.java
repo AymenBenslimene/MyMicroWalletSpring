@@ -22,7 +22,7 @@ public class Claims implements Serializable {
 	private String contents;
 	private String Response; 
 
-	// many to oe with client
-	// many to one with Admin 
+	// many to one with client: no declaration
+	// many to one with Admin : no declaration
 
 }

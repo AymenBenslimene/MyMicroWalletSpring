@@ -20,7 +20,7 @@ public class Offer implements Serializable {
 	// public Period period; 
 	// public String Data; 
 	
-	//many to one admin
+	//many to one admin : no declaration needed
 	
 	
 }

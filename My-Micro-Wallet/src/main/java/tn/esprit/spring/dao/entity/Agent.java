@@ -1,11 +1,14 @@
 package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Agent implements Serializable {
@@ -23,4 +26,6 @@ public class Agent implements Serializable {
 	//private picture ; 
 	
 	//one to many with dialogue Room ; 
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Dialogue_Room> dialogue_room;
 }
