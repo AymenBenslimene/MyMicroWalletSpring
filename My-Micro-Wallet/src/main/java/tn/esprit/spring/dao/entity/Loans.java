@@ -16,7 +16,12 @@ public class Loans implements Serializable{
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private int loan_id; 
 	
-	private String purpose; // could be enum
+	public enum Purpose{
+		
+		Auto,School,Home,Working
+	}
+	
+	private Purpose purpose; // could be enum
 	
 	public enum Type{
 		
@@ -49,5 +54,5 @@ public class Loans implements Serializable{
 	private Set<Payment> payment;
 	//one to many uni to Contract 
 	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Contract> dialogue_room;
+	private Set<Contract> Contract;
 }

@@ -16,6 +16,7 @@ public class Payment implements Serializable {
 	@Id
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private int payment_id; 
+	
 	private double amount_topay;
 	private double change; 
 	@Temporal (TemporalType.DATE)
