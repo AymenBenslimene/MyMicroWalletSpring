@@ -47,7 +47,7 @@ public class Account implements Serializable{
 	// one to many uni with transaction 
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Transaction> transaction;
-	// one to many with loans 
+	// one to many uni with loans 
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Loans> loans;
 	

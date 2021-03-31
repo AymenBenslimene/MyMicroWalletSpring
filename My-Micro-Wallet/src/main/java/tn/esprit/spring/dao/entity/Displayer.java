@@ -1,11 +1,14 @@
 package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Displayer implements Serializable {
@@ -20,8 +23,10 @@ public class Displayer implements Serializable {
 	private Type type;
 	//public Image image;
  	public String content;
- 	//public Date time_to_display;
+	@Temporal (TemporalType.DATE)
+ 	public Date time_to_display;
  	public String redirection; 
+ 	private static int Clicks;
  	
  	// Many to one with admin : no declaration needed
 }

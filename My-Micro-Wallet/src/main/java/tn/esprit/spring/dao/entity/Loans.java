@@ -15,15 +15,32 @@ public class Loans implements Serializable{
 	@Id
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private int loan_id; 
-	//private Purpose purpose; 
-	//private p_type payment_type; 
-	// type ( shortterm )private Amount amount;
-	private double loan_price; 
+	
+	private String purpose; // could be enum
+	
+	public enum Type{
+		
+		SHORT_TERM,INTERMEDIATE_TERM,LONG_TERM
+	}
+	private Type type; 
+		
+	
+	private double loan_amount;
+	
+	private double loan_purchase; 
+	
+	
 	//private Periodicity periodicity;
 	
-	//private Dis_nature Nature_of_Distribution;
+	public enum Distribution_Nature{
+		Cash,Balance
+	}
+	private Distribution_Nature Nature_of_Distribution;
 	
-	//private Ultimate_D ultimate_decision ; 
+	public enum Ultimate_Decision{
+		Accepted,Refused,In_Treatment
+	}
+	private Ultimate_Decision ultimate_decision ; 
 
 	//many to one to account : no declaration needed
 	

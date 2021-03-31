@@ -12,18 +12,21 @@ public class Dialogue_Room implements Serializable {
 	@Id
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private double Dialogue_Room_id;
-	private enum type {
+	private enum Type {
 		Assistance,Claim,Request
 	}
-	private enum way{
+	private Type type;
+	private enum Way{
 		Sms,Notification
 	}
-	private enum Sender{
+	private Way way;
+	/*private enum Sender{
 		
 	}
+	
 	private enum Receiver{
 		
-	}
+	}*/
 	
 	//private Sender sender;
 	

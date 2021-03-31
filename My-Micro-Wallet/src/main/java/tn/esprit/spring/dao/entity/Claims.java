@@ -1,11 +1,14 @@
 package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Claims implements Serializable {
@@ -16,8 +19,13 @@ public class Claims implements Serializable {
 	private int claim_id ; 
 	
 	//private Service service ; 
-	//private Date Date ; 
-	//private Status status; 
+	@Temporal (TemporalType.DATE)
+	private Date date ; 
+	
+	public enum Status {
+		Sent,Treated,Closed,Waiting_for_response,unclosed
+		}
+	private Status status; 
 	private String claim_title;
 	private String contents;
 	private String Response; 
