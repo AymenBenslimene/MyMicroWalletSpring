@@ -23,7 +23,7 @@ public class Agent implements Serializable {
 	//private Password  password; 
 	private int Badge_number ; 
 	//private set affected_clients
-	private Set <String> affected_clients; 
+	//private Set<String> affected_clients; 
 	//private picture ; 
 	
 	//one to many with dialogue Room ; 

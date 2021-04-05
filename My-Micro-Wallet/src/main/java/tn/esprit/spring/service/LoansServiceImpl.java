@@ -16,19 +16,24 @@ LoansRepository LoansRepo;
 @Override
 public List<Loans> retrieveAllLoans() {
 	// TODO Auto-generated method stub
-	return null;
+	return (List<Loans>) LoansRepo.findAll() ;
 }
 
 @Override
 public Loans addLoans(Loans u) {
 	// TODO Auto-generated method stub
+	
+	//LoansRepo.
+	
 	return null;
 }
 
 @Override
 public void deleteLoans(String id) {
 	// TODO Auto-generated method stub
-	
+	int LoanId = Integer.parseInt(id);
+	LoansRepo.deleteById(LoanId);
+	//LoansRepo.deleteById(userId);
 }
 
 @Override

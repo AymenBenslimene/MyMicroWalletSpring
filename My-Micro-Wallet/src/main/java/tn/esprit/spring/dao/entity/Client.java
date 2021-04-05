@@ -1,7 +1,7 @@
 package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -25,7 +25,7 @@ public class Client implements Serializable {
 	@Temporal (TemporalType.DATE)
 	private Date Birth_Date;
 	
-	private Email Email;
+	//private Email Email;
 	
 	private Sex Sex;
 	
@@ -36,8 +36,8 @@ public class Client implements Serializable {
 	private int Phone_Number;
 	
 	private double Salary;
-	@Embedded
-	private Adress Residential_Adress; 
+	/*@Embedded
+	private Adress Residential_Adress; */
 	@Embedded
 	private Adress Business_Adress; 
 	
@@ -61,8 +61,9 @@ public class Client implements Serializable {
 	
 	// one to many bidirectionnelle Account
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="Account")
-	private Account account;
+	/*@OneToMany(cascade = CascadeType.ALL, mappedBy="Account")
+	private Account account;*/
+	
 	// one to many uni Claim
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Claims> claim;

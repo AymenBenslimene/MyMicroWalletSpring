@@ -16,7 +16,7 @@ PaymentRepository PaymentRepo;
 @Override
 public List<Payment> retrieveAllPayments() {
 	// TODO Auto-generated method stub
-	return null;
+	return (List<Payment>) PaymentRepo.findAll();
 }
 
 @Override
@@ -28,7 +28,8 @@ public Payment addPayment(Payment u) {
 @Override
 public void deletePayment(String id) {
 	// TODO Auto-generated method stub
-	
+	int PaymentId = Integer.parseInt(id);
+	PaymentRepo.deleteById(PaymentId);
 }
 
 @Override

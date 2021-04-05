@@ -16,7 +16,8 @@ ContractRepository ContractRepo;
 @Override
 public List<Contract> retrieveAllContracts() {
 	// TODO Auto-generated method stub
-	return null;
+	
+	return (List<Contract>) ContractRepo.findAll();
 }
 
 @Override
@@ -28,7 +29,8 @@ public Contract addContract(Contract u) {
 @Override
 public void deleteContract(String id) {
 	// TODO Auto-generated method stub
-	
+	int LoanId = Integer.parseInt(id);
+	ContractRepo.deleteById(LoanId);
 }
 
 @Override
@@ -42,5 +44,7 @@ public Contract retrieveContract(String id) {
 	// TODO Auto-generated method stub
 	return null;
 } 
+
+
 
 }
