@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +21,10 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private int CIN;
+	
+	
 	private String Name;
+	
 	private String Surname; 
 	
 	@Temporal (TemporalType.DATE)
@@ -27,9 +32,16 @@ public class Client implements Serializable {
 	
 	//private Email Email;
 	
+	public enum Sex{
+		Homme,Femme,Autre
+	}
+	@Enumerated(EnumType.STRING)
 	private Sex Sex;
 	
-	
+	public enum Marital_Status{
+		Married,Single,Complicated
+	}
+	@Enumerated(EnumType.STRING)
 	private Marital_Status Marital_Status;
 	private Job Job_Title ;
 
