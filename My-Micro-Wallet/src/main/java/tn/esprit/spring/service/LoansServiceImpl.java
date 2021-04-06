@@ -19,6 +19,7 @@ LoansRepository LoansRepo;
 public List<Loans> retrieveAllLoans() {
 	// TODO Auto-generated method stub
 	return (List<Loans>) LoansRepo.findAll() ;
+
 }
 
 @Override
