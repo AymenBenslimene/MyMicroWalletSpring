@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Loans implements Serializable{
@@ -45,13 +47,14 @@ public class Loans implements Serializable{
 	}
 	@Enumerated(EnumType.STRING)
 
-	private Distribution_Nature Nature_of_Distribution;
+	@Column(name = "Distribution_Nature")
+	private Distribution_Nature Distribution_Nature;
 	
 	public enum Ultimate_Decision{
 		Accepted,Refused,In_Treatment
 	}
 	@Enumerated(EnumType.STRING)
-
+	@Column(name = "Ultimate_Decision")
 	private Ultimate_Decision ultimate_decision ;
 	
 	public enum Loan_Status{
@@ -67,8 +70,9 @@ public class Loans implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Payment> payment;
 	//one to many uni to Contract 
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Contract> Contract;
+	//@OneToMany(cascade = CascadeType.ALL)
+	@OneToOne
+	private Contract Contract;
 	
 	
 	//constructer getter et setters :
@@ -78,7 +82,7 @@ public class Loans implements Serializable{
 		this.type=Type;
 		this.loan_amount=loan_amount;
 		this.loan_purchase=loan_purchase;
-		this.Nature_of_Distribution=Distribution_Nature;
+		this.Distribution_Nature=Distribution_Nature;
 		this.ultimate_decision=ultimate_decision; 
 		this.Loan_Status=Loan_Status;
 	}
@@ -99,7 +103,7 @@ public class Loans implements Serializable{
 		this.loan_purchase=lp;
 	}
 	public void Set_Distribution_Nature(Distribution_Nature dn){
-		this.Nature_of_Distribution=dn;
+		this.Distribution_Nature=dn;
 	}
 	public void Set_Ultimate_Decision(Ultimate_Decision ud ){
 		this.ultimate_decision=ud; 
@@ -125,7 +129,7 @@ public class Loans implements Serializable{
 		return this.loan_purchase;
 	}
 	public Distribution_Nature Get_Distribution_Nature(){
-		return this.Nature_of_Distribution;
+		return this.Distribution_Nature;
 	}
 	public Ultimate_Decision Get_Ultimate_Decision(Ultimate_Decision ud ){
 		return this.ultimate_decision; 

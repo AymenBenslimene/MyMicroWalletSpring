@@ -2,27 +2,48 @@ package tn.esprit.spring.dao.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Table( name = "Payment_Table")
 @Entity
 public class Payment implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7097508416336481820L;
+
+	@Column(name = "_payment_id")
 	@Id
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private int payment_id; 
+	
+	
+	
 	public enum Type{
 	Prepayment,Automatique}
+	@Enumerated(EnumType.STRING)
+	@Column(name = "_Payment_Type")
 	private Type type ; 
+	
+	@Column(name = "_amount_to_pay")
+
 	private double amount_to_pay;
+	@Column(name = "_change")
 	private double change; 
+	
 	@Temporal (TemporalType.DATE)
-	private Date date_of_payment; 
+	@Column(name = "_date_of_payment")
+	private Date date_of_payment;
 	
 	//private Set<Date> schedules ; 
 

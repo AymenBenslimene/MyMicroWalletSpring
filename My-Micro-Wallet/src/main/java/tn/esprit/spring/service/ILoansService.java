@@ -11,8 +11,8 @@ public interface ILoansService {
 	Loans addLoans(Loans u);
 	void deleteLoans(String id);
 	Loans updateLoans(Loans u);
-	Loans retrieveLoans(String id);
-	Optional<Loans> retrieveLoans(int id);
+	Optional<Loans> retrieveLoans(String id);
+	//Optional<Loans> retrieveLoans(String id);
 	
 	
 }

@@ -3,7 +3,6 @@ package tn.esprit.spring.service;
 import java.util.List;
 
 import tn.esprit.spring.dao.entity.Agent;
-import tn.esprit.spring.dao.entity.User;
 
 public interface IAgentService {
 	List<Agent> retrieveAllAgents();
