@@ -75,168 +75,227 @@ Family_Loans,Construction_Loans,Mortgages,Payday_Loans,Personal_Loans,School_Loa
 	
 	// Constructeurs 
 	//Auto Constructors 
-	public Contract(int contract_id,Type type,String time_to_maturity,Repayment_Schedule Repayment_Schedule,Date Signature_Date,String Original_Note,String Extensions,String Additional_Terms,String Security,double bear_interest,
-			double Fixed_Interest,double Variable_Interest,double Annual_Percentage_Rate,double Prime_Rate,double Discount_Rate,double Simple_Interest,double Compound_Interest,double Other_Fees,double Late_fees,double Early_Payment_Penalty,double Default_Terms){
-		this.contract_id=contract_id;
-		this.type=type;
-		this.time_to_maturity=time_to_maturity;
-		this.Repayment_Schedule=Repayment_Schedule;
-		this.Signature_Date=Signature_Date;
-		this.Original_Note=Original_Note;
-		this.Additional_Terms=Additional_Terms;
-		this.Extensions=Extensions;
-		this.Security=Security;
-		this.bear_interest=bear_interest;
-		this.Fixed_Interest=Fixed_Interest;
-		this.Variable_Interest=Variable_Interest;
-		this.Annual_Percentage_Rate=Annual_Percentage_Rate;
-		this.Prime_Rate=Prime_Rate;
-		this.Discount_Rate=Discount_Rate;
-		this.Simple_Interest=Simple_Interest;
-		this.Compound_Interest=Compound_Interest;
-		this.Other_Fees=Other_Fees;
-		this.Late_fees=Late_fees;
-		this.Early_Payment_Penalty=Early_Payment_Penalty;
-		this.Default_Terms=Default_Terms;
-	}
+	
 	// Setters 
 	
-	public void Set_Contract_id(int id){
-		this.contract_id=id ; 
-	}
-	public void Set_Type(Type type){
-		this.type=type ; 
-	}
-	public void Set_Time_to_Maturity(String ttm){
-		this.time_to_maturity=ttm ; 
-	}
-	public void Set_Repayment_Schedule(Repayment_Schedule rs){
-		this.Repayment_Schedule=rs ;
-	}
 	
-	public void Set_Signature_Date(Date date){
-		this.Signature_Date=date ;
+	public Contract(int contract_id, Type type, String time_to_maturity,
+			tn.esprit.spring.dao.entity.Contract.Repayment_Schedule repayment_Schedule, Date signature_Date,
+			String original_Note, String extensions, String additional_Terms, String security, double bear_interest,
+			double fixed_Interest, double variable_Interest, double annual_Percentage_Rate, double prime_Rate,
+			double discount_Rate, double simple_Interest, double compound_Interest, double other_Fees, double late_fees,
+			double early_Payment_Penalty, double default_Terms) {
+		super();
+		this.contract_id = contract_id;
+		this.type = type;
+		this.time_to_maturity = time_to_maturity;
+		Repayment_Schedule = repayment_Schedule;
+		Signature_Date = signature_Date;
+		Original_Note = original_Note;
+		Extensions = extensions;
+		Additional_Terms = additional_Terms;
+		Security = security;
+		this.bear_interest = bear_interest;
+		Fixed_Interest = fixed_Interest;
+		Variable_Interest = variable_Interest;
+		Annual_Percentage_Rate = annual_Percentage_Rate;
+		Prime_Rate = prime_Rate;
+		Discount_Rate = discount_Rate;
+		Simple_Interest = simple_Interest;
+		Compound_Interest = compound_Interest;
+		Other_Fees = other_Fees;
+		Late_fees = late_fees;
+		Early_Payment_Penalty = early_Payment_Penalty;
+		Default_Terms = default_Terms;
 	}
-	
-	public void Set_Original_Note(String text){
-		this.Original_Note=text ;
+
+	public Contract() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void Set_Additional_Terms(String text){
-		this.Additional_Terms=text ;
+	public Contract(int contract_id, Type type, String time_to_maturity,
+			tn.esprit.spring.dao.entity.Contract.Repayment_Schedule repayment_Schedule, String original_Note,
+			String extensions, String additional_Terms, String security) {
+		super();
+		this.contract_id = contract_id;
+		this.type = type;
+		this.time_to_maturity = time_to_maturity;
+		Repayment_Schedule = repayment_Schedule;
+		Original_Note = original_Note;
+		Extensions = extensions;
+		Additional_Terms = additional_Terms;
+		Security = security;
 	}
-	public void Set_Extensions(String text){
-		this.Extensions=text ;
+
+	public int getContract_id() {
+		return contract_id;
 	}
-	public void Set_Security(String text){
-		this.Security=text;
+
+	public void setContract_id(int contract_id) {
+		this.contract_id = contract_id;
 	}
-	
-	public void Set_bear_interest(double interest){
-		this.bear_interest=interest;
+
+	public Type getType() {
+		return type;
 	}
-	public void Set_Fixed_Interest(double interest){
-		this.Fixed_Interest=interest;
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public String getTime_to_maturity() {
+		return time_to_maturity;
+	}
+
+	public void setTime_to_maturity(String time_to_maturity) {
+		this.time_to_maturity = time_to_maturity;
+	}
+
+	public Repayment_Schedule getRepayment_Schedule() {
+		return Repayment_Schedule;
+	}
+
+	public void setRepayment_Schedule(Repayment_Schedule repayment_Schedule) {
+		Repayment_Schedule = repayment_Schedule;
+	}
+
+	public Date getSignature_Date() {
+		return Signature_Date;
+	}
+
+	public void setSignature_Date(Date signature_Date) {
+		Signature_Date = signature_Date;
+	}
+
+	public String getOriginal_Note() {
+		return Original_Note;
+	}
+
+	public void setOriginal_Note(String original_Note) {
+		Original_Note = original_Note;
+	}
+
+	public String getExtensions() {
+		return Extensions;
+	}
+
+	public void setExtensions(String extensions) {
+		Extensions = extensions;
+	}
+
+	public String getAdditional_Terms() {
+		return Additional_Terms;
+	}
+
+	public void setAdditional_Terms(String additional_Terms) {
+		Additional_Terms = additional_Terms;
+	}
+
+	public String getSecurity() {
+		return Security;
+	}
+
+	public void setSecurity(String security) {
+		Security = security;
+	}
+
+	public double getBear_interest() {
+		return bear_interest;
+	}
+
+	public void setBear_interest(double bear_interest) {
+		this.bear_interest = bear_interest;
+	}
+
+	public double getFixed_Interest() {
+		return Fixed_Interest;
+	}
+
+	public void setFixed_Interest(double fixed_Interest) {
+		Fixed_Interest = fixed_Interest;
+	}
+
+	public double getVariable_Interest() {
+		return Variable_Interest;
+	}
+
+	public void setVariable_Interest(double variable_Interest) {
+		Variable_Interest = variable_Interest;
+	}
+
+	public double getAnnual_Percentage_Rate() {
+		return Annual_Percentage_Rate;
+	}
+
+	public void setAnnual_Percentage_Rate(double annual_Percentage_Rate) {
+		Annual_Percentage_Rate = annual_Percentage_Rate;
+	}
+
+	public double getPrime_Rate() {
+		return Prime_Rate;
+	}
+
+	public void setPrime_Rate(double prime_Rate) {
+		Prime_Rate = prime_Rate;
+	}
+
+	public double getDiscount_Rate() {
+		return Discount_Rate;
+	}
+
+	public void setDiscount_Rate(double discount_Rate) {
+		Discount_Rate = discount_Rate;
+	}
+
+	public double getSimple_Interest() {
+		return Simple_Interest;
+	}
+
+	public void setSimple_Interest(double simple_Interest) {
+		Simple_Interest = simple_Interest;
+	}
+
+	public double getCompound_Interest() {
+		return Compound_Interest;
+	}
+
+	public void setCompound_Interest(double compound_Interest) {
+		Compound_Interest = compound_Interest;
+	}
+
+	public double getOther_Fees() {
+		return Other_Fees;
+	}
+
+	public void setOther_Fees(double other_Fees) {
+		Other_Fees = other_Fees;
+	}
+
+	public double getLate_fees() {
+		return Late_fees;
+	}
+
+	public void setLate_fees(double late_fees) {
+		Late_fees = late_fees;
+	}
+
+	public double getEarly_Payment_Penalty() {
+		return Early_Payment_Penalty;
+	}
+
+	public void setEarly_Payment_Penalty(double early_Payment_Penalty) {
+		Early_Payment_Penalty = early_Payment_Penalty;
+	}
+
+	public double getDefault_Terms() {
+		return Default_Terms;
+	}
+
+	public void setDefault_Terms(double default_Terms) {
+		Default_Terms = default_Terms;
 	} 
-	public void Set_Variable_Interest(double interest){
-		this.Variable_Interest=interest;
-	}
-	public void Set_Annual_Percentage_Rate(double interest){
-		this.Annual_Percentage_Rate=interest;
-	}
-	public void Set_Prime_Rate(double interest){
-		this.Prime_Rate=interest;
-	}
-	public void Set_Discount_Rate(double interest){
-		this.Discount_Rate=interest;
-	}
-	public void Set_Simple_Interest(double interest){
-		this.Simple_Interest=interest;
-	}
-	public void Set_Compound_Interest(double interest){
-		this.Compound_Interest=interest;
-	}
-	public void Set_Other_Fees(double interest){
-		this.Other_Fees=interest;
-	}
 	
 	
-	public void Set_Late_fees(double interest){
-		this.Late_fees=interest;
-	}
-	public void Set_Early_Payment_Penalty(double interest){
-		this.Early_Payment_Penalty=interest;
-	} 
-	public void Set_Default_Terms(double interest){
-		this.Default_Terms=interest; 
-	} 
-	//Getters 
-	public int Get_Contract_id(){
-		return this.contract_id ; 
-	}
-	public Type Get_Type(){
-		return this.type ; 
-	}
-	public String Get_Time_to_Maturity(){
-		return this.time_to_maturity ; 
-	}
-	public Repayment_Schedule Get_Repayment_Schedule(){
-		return this.Repayment_Schedule ;
-	}
-	
-	public Date Get_Signature_Date(){
-		return this.Signature_Date ;
-	}
-	
-	public String Get_Original_Note(){
-		return this.Original_Note;
-	}
-	public String Get_Additional_Terms(){
-		return this.Additional_Terms ;
-	}
-	public String Get_Extensions(){
-		return this.Extensions ;
-	}
-	public String Get_Security(){
-		return this.Security;
-	}
-	
-	public double Get_bear_interest(){
-		return this.bear_interest;
-	}
-	public double Get_Fixed_Interest(){
-		return this.Fixed_Interest;
-	} 
-	public double Get_Variable_Interest(){
-		return this.Variable_Interest;
-	}
-	public double Get_Annual_Percentage_Rate(){
-		return this.Annual_Percentage_Rate;
-	}
-	public double Get_Prime_Rate(){
-		return this.Prime_Rate;
-	}
-	public double Get_Discount_Rate(){
-		return this.Discount_Rate;
-	}
-	public double Get_Simple_Interest(){
-		return this.Simple_Interest;
-	}
-	public double Get_Compound_Interest(){
-		return this.Compound_Interest;
-	}
-	public double Get_Other_Fees( ){
-		return this.Other_Fees;
-	}
-	
-	public double Get_Late_fees(){
-		return this.Late_fees;
-	}
-	public double Get_Early_Payment_Penalty(){
-		return this.Early_Payment_Penalty;
-	} 
-	public double Get_Default_Terms(){
-		return this.Default_Terms; 
-	} 
 	
 	
 	

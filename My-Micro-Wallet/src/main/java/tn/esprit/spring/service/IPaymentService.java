@@ -10,5 +10,6 @@ public interface IPaymentService {
 	Payment addPayment(Payment u);
 	void deletePayment(String id);
 	Payment updatePayment(Payment u);
-	Optional<Payment> retrievePayment(String id);
+	
+	Optional<Payment> retrievePaymentById(String id);
 }

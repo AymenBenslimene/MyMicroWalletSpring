@@ -1,12 +1,16 @@
 package tn.esprit.spring.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.spring.dao.entity.Loans;
 import tn.esprit.spring.dao.entity.Payment;
+import tn.esprit.spring.dao.entity.Payment.Type;
 import tn.esprit.spring.dao.repository.PaymentRepository;
 
 @Service
@@ -42,9 +46,30 @@ public Payment updatePayment(Payment u) {
 }
 
 @Override
-public Optional<Payment> retrievePayment(String id) {
+public Optional<Payment> retrievePaymentById(String id) {
 	// TODO Auto-generated method stub
 	int PaymentId = Integer.parseInt(id);
 	return PaymentRepo.findById(PaymentId);
 } 
+
+
+
+
+
+public List<Payment> retrievePaymentByType(Type type){
+	return PaymentRepo.retrievePaymentByType(type);
+}
+
+
+public List<Payment> retrievePaymentByamounttopay(Double amount_to_pay){
+	return PaymentRepo.retrievePaymentByamounttopay(amount_to_pay);
+}
+
+public List<Payment> retrievePaymentByChange(Double change){
+	return PaymentRepo.retrievePaymentByChange(change);
+}
+
+public List<Payment> retrievePaymentByDateofpayment(Date date_of_payment){
+	return PaymentRepo.retrievePaymentByDateofpayment(date_of_payment);
+}
 }

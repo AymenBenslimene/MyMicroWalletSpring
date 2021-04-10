@@ -1,5 +1,6 @@
 package tn.esprit.spring.dao.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -18,8 +19,8 @@ public interface LoansRepository extends CrudRepository < Loans, Integer> {
 	//List<User> retrieveUsersByRole(Role role);
 	
 	
-	@Query("SELECT u FROM Loans u WHERE u.id= ?1")
-	Loans retrieveLoanById(int id);
+	@Query("SELECT u FROM Loans u WHERE u.loan_id= ?1")
+	Loans retrieveLoanById(int loan_id);
 	
 	@Query("SELECT u FROM Loans u WHERE u.purpose= ?1")
 	List<Loans> retrieveLoansByPurpose(Purpose purpose);
@@ -27,6 +28,12 @@ public interface LoansRepository extends CrudRepository < Loans, Integer> {
 	@Query("SELECT u FROM Loans u WHERE u.type= ?1")
 	List<Loans> retrieveLoansByType(Type type);
 	
+	@Query("SELECT u FROM Loans u WHERE u.RequestDate= ?1")
+	List<Loans> retrieveLoansByRequestDate(Date RequestDate);
+	@Query("SELECT u FROM Loans u WHERE u.ResponseDate= ?1")
+	List<Loans> retrieveLoansByResponseDate(Date ResponseDate);
+	@Query("SELECT u FROM Loans u WHERE u.FinalDate= ?1")
+	List<Loans> retrieveLoansByFinalDate(Date FinalDate);
 	
 	
 	@Query("SELECT u FROM Loans u WHERE u.Distribution_Nature= :Distribution_Nature")
@@ -44,5 +51,8 @@ public interface LoansRepository extends CrudRepository < Loans, Integer> {
 	List<Loans> retrieveLoansByPurchase(double from, double to);
 	
 	// Retrieve List of payments
+	
+	// retrieve Contract 
+	//@Query("Select u From Loans u Where u.loan")
 	
 }

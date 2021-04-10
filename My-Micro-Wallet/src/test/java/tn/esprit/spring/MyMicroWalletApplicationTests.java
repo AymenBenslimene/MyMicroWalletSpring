@@ -14,10 +14,7 @@ class MyMicroWalletApplicationTests {
 	@Test
 	void contextLoads() {
 		Loans u = null;
-		u.Set_Loan_Id(1);
-		u.Set_Loan_Amount(120);
-		u.Set_Loan_Purchase(140);
-		loans.addLoans(u);
+
 	}
 
 }

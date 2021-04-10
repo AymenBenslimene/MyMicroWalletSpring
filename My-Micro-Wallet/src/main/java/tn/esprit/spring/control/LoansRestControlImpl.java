@@ -1,5 +1,7 @@
 package tn.esprit.spring.control;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tn.esprit.spring.dao.entity.Account;
 import tn.esprit.spring.dao.entity.Contract;
 import tn.esprit.spring.dao.entity.Loans;
+import tn.esprit.spring.dao.entity.Loans.Loan_Status;
 import tn.esprit.spring.dao.entity.Loans.Ultimate_Decision;
 import tn.esprit.spring.dao.entity.Payment;
 import tn.esprit.spring.service.AccountServiceImpl;
@@ -42,6 +45,7 @@ public class LoansRestControlImpl {
 	name) {
 	model.put("receivedName", name);
 	return "Myloan";
+	
 	}
 	/*
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -53,7 +57,7 @@ public class LoansRestControlImpl {
 	
 
     @GetMapping("/getLoans")
-    @ResponseBody
+    //@ResponseBody
     public List<Loans> allLoans() {
     	
     	List<Loans> list = Loans_Service.retrieveAllLoans();
@@ -62,7 +66,7 @@ public class LoansRestControlImpl {
     }
     
     @GetMapping("/Loansrequests")
-    @ResponseBody
+    //@ResponseBody
     public List<Loans> getLoansRequests() {
     	Ultimate_Decision ud =Ultimate_Decision.In_Treatment;
     	List<Loans> list = Loans_Service.retrieveLoansByUltimateDecision(ud);
@@ -89,7 +93,7 @@ public class LoansRestControlImpl {
     public Loans ApprouveLoansRequestsbyId(@PathVariable String id ) {
     	Ultimate_Decision ud =Ultimate_Decision.In_Treatment;
     	Loans u =Loans_Service.retrieveLoanById(id);
-    	u.Set_Ultimate_Decision(Ultimate_Decision.Accepted);
+    	u.setUltimate_decision(Ultimate_Decision.Accepted);
     	Loans_Service.updateLoans(u);
     	
     	/// set Contract
@@ -101,16 +105,16 @@ public class LoansRestControlImpl {
     public Loans RefuseLoansRequestsbyId(@PathVariable String id ) {
     	Ultimate_Decision ud =Ultimate_Decision.In_Treatment;
     	Loans u =Loans_Service.retrieveLoanById(id);
-    	u.Set_Ultimate_Decision(Ultimate_Decision.Refused);
+    	u.setUltimate_decision(Ultimate_Decision.Refused);
     	Loans_Service.updateLoans(u);
 
         return u;
     }
-    /*
+    
     @PostMapping Loans PaymyLoanAutomatic(@PathVariable String id ){
     	
     	//double Amount= givemepaymentamount();
-    	double Amount=60;
+    	//double Amount=60;
     	//Payment_Service.addPayment(0)
     	 	
         		//testin if payment_left = 0 
@@ -125,7 +129,7 @@ public class LoansRestControlImpl {
     	return null;
     	
     }
-    
+    /*
     @PostMapping Loans PaymyLoansManually(PathVariable String){
 		return null;
     	
@@ -157,30 +161,45 @@ public class LoansRestControlImpl {
 		//Loans u = new Loans();
 		//u.Set_Loan_Id(100);
 		//u.Set_Loan_Amount(10);
-    	u.Set_Loan_Purchase(1200);
+    	//u.setLoan_purchase(1200);
+    	u.setContract(null);
+    	u.setLoan_Status(Loan_Status.Open);
+    	Date d = null;
+    	u.setRequestDate(d);
+    	u.setUltimate_decision(Ultimate_Decision.In_Treatment);
     	Loans_Service.addLoans(u);
 		//Loans_Service.
-		return  "added";
+		return  "Your Loans Request is sent to our Agent and will be treated soon, Thank you";
 		
     	
     }
     @RequestMapping("/loanAddTesting")
     public Loans AddLoan(){
   		Loans u = new Loans();
-  		u.Set_Loan_Id(101);
-  		u.Set_Loan_Amount(1010);
+  		u.setLoan_id(101);
+  		u.setLoan_amount(1010);
   		Loans_Service.addLoans(u);
   		return u;}
     
     
     @DeleteMapping("/Loans/Cancel/{id}")
-    public void delete(@PathVariable String id) {
+    public String delete(@PathVariable String id) {
 
         //int userId = Integer.parseInt(id);
         Loans_Service.deleteLoans(id);
+        return "Loans Request Canceled";
     }
     
     //@RequestMapping("")
-
+    @RequestMapping("/Loansclosing/{id}")
+    public String CloseLoan(@PathVariable String id ){
+  		Loans u = Loans_Service.retrieveLoanById(id);
+  		u.setFinalDate(new Date());
+  		u.setLoan_Status(Loan_Status.Close);
+  	   SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+  	    Date date = new Date();  
+  	    String d=formatter.format(date); 
+  	    Loans_Service.updateLoans(u);
+  		return "Loans is Closed by Date"+d  ;}
     
 }
