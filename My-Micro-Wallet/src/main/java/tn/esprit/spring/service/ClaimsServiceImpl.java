@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,31 +17,37 @@ ClaimsRepository ClaimsRepo;
 @Override
 public List<Claims> retrieveAllClaims() {
 	// TODO Auto-generated method stub
-	return null;
+	return (List<Claims>) ClaimsRepo.findAll();
 }
 
 @Override
 public Claims addClaim(Claims u) {
 	// TODO Auto-generated method stub
-	return null;
+	ClaimsRepo.save(u);
+	return u;
 }
 
 @Override
 public void deleteClaims(String id) {
 	// TODO Auto-generated method stub
+	int AgentId = Integer.parseInt(id);
+	ClaimsRepo.deleteById(AgentId);
 	
 }
 
 @Override
 public Claims updateClaim(Claims u) {
 	// TODO Auto-generated method stub
-	return null;
+	ClaimsRepo.save(u);
+	
+	return u;
 }
 
 @Override
-public Claims retrieveClaim(String id) {
+public Optional<Claims> retrieveClaim(String id) {
 	// TODO Auto-generated method stub
-	return null;
+	int AgentId = Integer.parseInt(id);
+	return ClaimsRepo.findById( AgentId );
 }
 
 }

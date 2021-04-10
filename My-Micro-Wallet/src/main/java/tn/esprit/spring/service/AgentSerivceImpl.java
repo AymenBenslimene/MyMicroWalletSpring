@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,31 +16,37 @@ AgentRepository AgentRepo;
 
 @Override
 public List<Agent> retrieveAllAgents() {
-	// TODO Auto-generated method stub
-	return null;
+	
+	return (List<Agent>) AgentRepo.findAll();
 }
 
 @Override
 public Agent addAgent(Agent u) {
 	// TODO Auto-generated method stub
-	return null;
+	AgentRepo.save(u);
+	return u;
 }
 
 @Override
 public void deleteAgent(String id) {
 	// TODO Auto-generated method stub
+	int AgentId = Integer.parseInt(id);
+	AgentRepo.deleteById(AgentId);
 	
 }
 
 @Override
 public Agent updateAgent(Agent u) {
 	// TODO Auto-generated method stub
-	return null;
+	AgentRepo.save(u);
+	return u;
 }
 
 @Override
-public Agent retrieveAgent(String id) {
+public Optional<Agent> retrieveAgent(String id) {
 	// TODO Auto-generated method stub
-	return null;
+	
+	int AgentId = Integer.parseInt(id);
+	return AgentRepo.findById(AgentId);
 }
 }

@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import tn.esprit.spring.dao.entity.Account;
 import tn.esprit.spring.dao.entity.Contract;
@@ -11,5 +12,5 @@ public interface IDialogue_RoomService {
 	Dialogue_Room addDialogue_Room(Dialogue_Room u);
 	void deleteDialogue_Room(String id);
 	Dialogue_Room updateDialogue_Room(Dialogue_Room u);
-	Dialogue_Room retrieveDialogue_Room(String id);
+	Optional<Dialogue_Room> retrieveDialogue_Room(String id);
 }

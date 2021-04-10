@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,8 @@ public List<Payment> retrieveAllPayments() {
 @Override
 public Payment addPayment(Payment u) {
 	// TODO Auto-generated method stub
-	return null;
+	PaymentRepo.save(u);
+	return u;
 }
 
 @Override
@@ -35,12 +37,14 @@ public void deletePayment(String id) {
 @Override
 public Payment updatePayment(Payment u) {
 	// TODO Auto-generated method stub
-	return null;
+	PaymentRepo.save(u);
+	return u;
 }
 
 @Override
-public Payment retrievePayment(String id) {
+public Optional<Payment> retrievePayment(String id) {
 	// TODO Auto-generated method stub
-	return null;
+	int PaymentId = Integer.parseInt(id);
+	return PaymentRepo.findById(PaymentId);
 } 
 }

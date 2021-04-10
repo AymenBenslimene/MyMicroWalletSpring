@@ -19,8 +19,28 @@ public class Offer implements Serializable {
 	// public Image image ; 
 	// public Period period; 
 	// public String Data; 
+	public int getOffer_id() {
+		return offer_id;
+	}
+	public void setOffer_id(int offer_id) {
+		this.offer_id = offer_id;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getSurname() {
+		return Surname;
+	}
+	public void setSurname(String surname) {
+		Surname = surname;
+	}
 	
 	//many to one admin : no declaration needed
+	
+	
 	
 	
 }

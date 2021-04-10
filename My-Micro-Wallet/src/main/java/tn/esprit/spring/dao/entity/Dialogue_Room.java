@@ -27,6 +27,24 @@ public class Dialogue_Room implements Serializable {
 	private enum Receiver{
 		
 	}*/
+	public double getDialogue_Room_id() {
+		return Dialogue_Room_id;
+	}
+	public void setDialogue_Room_id(double dialogue_Room_id) {
+		Dialogue_Room_id = dialogue_Room_id;
+	}
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
+	public Way getWay() {
+		return way;
+	}
+	public void setWay(Way way) {
+		this.way = way;
+	}
 	
 	//private Sender sender;
 	
@@ -36,6 +54,8 @@ public class Dialogue_Room implements Serializable {
 	
 	//many to one with client : no declaration needed
 	// Many to one with Agent : no declaration needed
+	
+	
 	
 	
 }

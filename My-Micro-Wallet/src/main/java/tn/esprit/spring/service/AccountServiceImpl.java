@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,34 +16,37 @@ public class AccountServiceImpl implements IAccountService{
 	AccountRepository AccountRepo;
 	@Override
 	public List<Account> retrieveAllAccounts() {
-		// TODO Auto-generated method stub
+		return (List<Account>) AccountRepo.findAll();
 		
-		
-		return null;
 	}
 
 	@Override
 	public Account addAccount(Account u) {
 		// TODO Auto-generated method stub
+		AccountRepo.save(u);
 		return null;
 	}
 
 	@Override
 	public void deleteAccount(String id) {
 		// TODO Auto-generated method stub
-		
+		int AccountId = Integer.parseInt(id);
+		AccountRepo.deleteById(AccountId);
 	}
 
 	@Override
 	public Account updateAccount(Account u) {
 		// TODO Auto-generated method stub
-		return null;
+	
+		return AccountRepo.save(u);
 	}
 
 	@Override
-	public Account retrieveAccount(String id) {
+	public Optional<Account> retrieveAccount(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		int AccountId = Integer.parseInt(id);
+		
+		return AccountRepo.findById(AccountId);
 	}
 
 }

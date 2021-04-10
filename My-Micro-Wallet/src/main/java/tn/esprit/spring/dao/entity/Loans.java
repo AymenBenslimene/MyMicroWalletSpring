@@ -34,6 +34,7 @@ public class Loans implements Serializable{
 
 	private Type type; 
 		
+
 	
 	private double loan_amount;
 	
@@ -87,6 +88,10 @@ public class Loans implements Serializable{
 		this.Loan_Status=Loan_Status;
 	}
 	
+	public Loans() {
+		super();
+	}
+
 	public void Set_Loan_Id(int loan_id){
 		this.loan_id=loan_id;
 	}

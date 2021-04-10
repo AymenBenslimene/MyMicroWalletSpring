@@ -47,11 +47,108 @@ public class Account implements Serializable{
 	/*@ManyToOne
 	Client client;*/
 	// one to many uni with transaction 
+	
+	// one to many uni with loans 
+		@OneToMany(cascade = CascadeType.ALL)
+		private Set<Loans> loans;
+		
+	
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Transaction> transaction;
-	// one to many uni with loans 
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Loans> loans;
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Account_ID;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		if (Account_ID != other.Account_ID)
+			return false;
+		return true;
+	}
+	public int getAccount_ID() {
+		return Account_ID;
+	}
+	public void setAccount_ID(int account_ID) {
+		Account_ID = account_ID;
+	}
+	public static int getAccount_Number() {
+		return Account_Number;
+	}
+	public static void setAccount_Number(int account_Number) {
+		Account_Number = account_Number;
+	}
+	public Date getCreation_Date() {
+		return Creation_Date;
+	}
+	public void setCreation_Date(Date creation_Date) {
+		Creation_Date = creation_Date;
+	}
+	public Date getExpire() {
+		return expire;
+	}
+	public void setExpire(Date expire) {
+		this.expire = expire;
+	}
+	public double getBalance() {
+		return Balance;
+	}
+	public void setBalance(double balance) {
+		Balance = balance;
+	}
+	public double getMin_Balance() {
+		return Min_Balance;
+	}
+	public void setMin_Balance(double min_Balance) {
+		Min_Balance = min_Balance;
+	}
+	public double getMax_Balance() {
+		return Max_Balance;
+	}
+	public void setMax_Balance(double max_Balance) {
+		Max_Balance = max_Balance;
+	}
+	public double getBank_verification_number() {
+		return bank_verification_number;
+	}
+	public void setBank_verification_number(double bank_verification_number) {
+		this.bank_verification_number = bank_verification_number;
+	}
+	public static double getNumber() {
+		return Number;
+	}
+	public static void setNumber(double number) {
+		Number = number;
+	}
+	public double getRIB() {
+		return RIB;
+	}
+	public void setRIB(double rIB) {
+		RIB = rIB;
+	}
+	public Set<Transaction> getTransaction() {
+		return transaction;
+	}
+	public void setTransaction(Set<Transaction> transaction) {
+		this.transaction = transaction;
+	}
+	public Set<Loans> getLoans() {
+		return loans;
+	}
+	public void setLoans(Set<Loans> loans) {
+		this.loans = loans;
+	}
 	
 	
 	

@@ -3,6 +3,7 @@ package tn.esprit.spring.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +19,23 @@ import tn.esprit.spring.dao.repository.LoansRepository;
 public class LoansServiceImpl implements ILoansService {
 @Autowired
 LoansRepository LoansRepo;
+//private static final org.apache.loggin.log4j.logger l =LogManager.getLogger(LoansServiceImpl.class);
 
-//Retrieving 
+//Retrieving with all type
 @Override
 public List<Loans> retrieveAllLoans() {
-	// TODO Auto-generated method stub
-	return (List<Loans>) LoansRepo.findAll() ;
+	List<Loans> loans = (List<Loans>) LoansRepo.findAll();
+	
+	return loans ;
 
 }
 
 public Loans retrieveLoanById(String id){
 	int LoanId = Integer.parseInt(id);
-	return (Loans) LoansRepo.retrieveLoanById(LoanId);
+	Loans loan= new Loans();
+	loan=LoansRepo.retrieveLoanById(LoanId);
+	 
+	return  loan;
 }
 
 public List<Loans> retrieveLoansByPurpose(Purpose purpose){
@@ -78,9 +84,9 @@ public Loans addLoans(Loans u) {
 	// TODO Auto-generated method stub
 	
 	//LoansRepo.
-	LoansRepo.save(u);
+	//LoansRepo.save(u);
 	
-	return null;
+	return LoansRepo.save(u);
 }
 
 @Override
@@ -112,7 +118,9 @@ public Optional<Loans> retrieveLoans(String id) {
 		
 }
 
-
+public long countLoans(){
+	return LoansRepo.count();
+}
 
 
 }

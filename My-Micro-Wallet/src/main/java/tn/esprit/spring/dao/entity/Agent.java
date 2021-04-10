@@ -29,4 +29,46 @@ public class Agent implements Serializable {
 	//one to many with dialogue Room ; 
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Dialogue_Room> dialogue_room;
+
+	public int getAgent_id() {
+		return agent_id;
+	}
+
+	public void setAgent_id(int agent_id) {
+		this.agent_id = agent_id;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getSurname() {
+		return Surname;
+	}
+
+	public void setSurname(String surname) {
+		Surname = surname;
+	}
+
+	public int getBadge_number() {
+		return Badge_number;
+	}
+
+	public void setBadge_number(int badge_number) {
+		Badge_number = badge_number;
+	}
+
+	public Set<Dialogue_Room> getDialogue_room() {
+		return dialogue_room;
+	}
+
+	public void setDialogue_room(Set<Dialogue_Room> dialogue_room) {
+		this.dialogue_room = dialogue_room;
+	}
+	
+	
 }

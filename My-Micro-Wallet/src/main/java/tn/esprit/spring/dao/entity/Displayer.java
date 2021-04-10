@@ -27,6 +27,44 @@ public class Displayer implements Serializable {
  	public Date time_to_display;
  	public String redirection; 
  	private static int Clicks;
+	public int getDiplayer_id() {
+		return diplayer_id;
+	}
+	public void setDiplayer_id(int diplayer_id) {
+		this.diplayer_id = diplayer_id;
+	}
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Date getTime_to_display() {
+		return time_to_display;
+	}
+	public void setTime_to_display(Date time_to_display) {
+		this.time_to_display = time_to_display;
+	}
+	public String getRedirection() {
+		return redirection;
+	}
+	public void setRedirection(String redirection) {
+		this.redirection = redirection;
+	}
+	public static int getClicks() {
+		return Clicks;
+	}
+	public static void setClicks(int clicks) {
+		Clicks = clicks;
+	}
  	
  	// Many to one with admin : no declaration needed
+ 	
+ 	
 }

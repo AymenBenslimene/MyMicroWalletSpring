@@ -26,6 +26,56 @@ public class Transaction implements Serializable{
 	private Date date ;
 	//private Nature nature ;
 	//private State State ; 
+
+	public int getTransaction_Id() {
+		return Transaction_Id;
+	}
+
+	public void setTransaction_Id(int transaction_Id) {
+		Transaction_Id = transaction_Id;
+	}
+
+	public String getDeposit() {
+		return deposit;
+	}
+
+	public void setDeposit(String deposit) {
+		this.deposit = deposit;
+	}
+
+	public String getWording() {
+		return Wording;
+	}
+
+	public void setWording(String wording) {
+		Wording = wording;
+	}
+
+	public String getSender_id() {
+		return Sender_id;
+	}
+
+	public void setSender_id(String sender_id) {
+		Sender_id = sender_id;
+	}
+
+	public String getReceiver_id() {
+		return Receiver_id;
+	}
+
+	public void setReceiver_id(String receiver_id) {
+		Receiver_id = receiver_id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	
 	//many to one with account 
+	
+	
 }

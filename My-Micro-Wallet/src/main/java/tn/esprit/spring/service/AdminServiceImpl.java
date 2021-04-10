@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,31 +17,40 @@ AdminRepository AdminRepo;
 @Override
 public List<Admin> retrieveAllAdmins() {
 	// TODO Auto-generated method stub
-	return null;
+	return (List<Admin>) AdminRepo.findAll();
 }
 
 @Override
 public Admin addAdmin(Admin u) {
 	// TODO Auto-generated method stub
+	AdminRepo.save(u);
 	return null;
 }
 
 @Override
 public void deleteAdmin(String id) {
 	// TODO Auto-generated method stub
+	int AccountId = Integer.parseInt(id);
+	AdminRepo.deleteById(AccountId);
 	
 }
 
 @Override
 public Admin updateAdmin(Admin u) {
 	// TODO Auto-generated method stub
-	return null;
+	AdminRepo.save(u);
+	return u;
 }
 
 @Override
-public Admin retrieveAdmin(String id) {
+public Optional<Admin> retrieveAdmin(String id) {
 	// TODO Auto-generated method stub
-	return null;
+	
+	int AccountId = Integer.parseInt(id);
+	return AdminRepo.findById(AccountId);
 }
+
+
+
 
 }

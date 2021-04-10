@@ -19,7 +19,7 @@ public interface LoansRepository extends CrudRepository < Loans, Integer> {
 	
 	
 	@Query("SELECT u FROM Loans u WHERE u.id= ?1")
-	List<Loans> retrieveLoanById(int id);
+	Loans retrieveLoanById(int id);
 	
 	@Query("SELECT u FROM Loans u WHERE u.purpose= ?1")
 	List<Loans> retrieveLoansByPurpose(Purpose purpose);
@@ -42,4 +42,7 @@ public interface LoansRepository extends CrudRepository < Loans, Integer> {
 	List<Loans> retrieveLoansByAmount(double from, double to);
 	@Query("SELECT u FROM Loans u WHERE u.loan_purchase between ?1 and  ?2")
 	List<Loans> retrieveLoansByPurchase(double from, double to);
+	
+	// Retrieve List of payments
+	
 }

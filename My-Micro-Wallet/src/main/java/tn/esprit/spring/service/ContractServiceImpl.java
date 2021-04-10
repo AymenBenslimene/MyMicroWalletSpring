@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,26 +24,30 @@ public List<Contract> retrieveAllContracts() {
 @Override
 public Contract addContract(Contract u) {
 	// TODO Auto-generated method stub
-	return null;
+	ContractRepo.save(u);
+	return u;
 }
 
 @Override
 public void deleteContract(String id) {
 	// TODO Auto-generated method stub
-	int LoanId = Integer.parseInt(id);
-	ContractRepo.deleteById(LoanId);
+	int ContractId = Integer.parseInt(id);
+	ContractRepo.deleteById(ContractId);
 }
 
 @Override
 public Contract updateContract(Contract u) {
 	// TODO Auto-generated method stub
-	return null;
+	ContractRepo.save(u);
+	return u;
 }
 
 @Override
-public Contract retrieveContract(String id) {
+public Optional<Contract> retrieveContract(String id) {
 	// TODO Auto-generated method stub
-	return null;
+	int ContractId = Integer.parseInt(id);
+	
+	return ContractRepo.findById(ContractId);
 } 
 
 

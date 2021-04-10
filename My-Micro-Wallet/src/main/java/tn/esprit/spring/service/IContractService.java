@@ -1,6 +1,7 @@
 package tn.esprit.spring.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import tn.esprit.spring.dao.entity.Account;
 import tn.esprit.spring.dao.entity.Contract;
@@ -10,5 +11,5 @@ public interface IContractService {
 	Contract addContract(Contract u);
 	void deleteContract(String id);
 	Contract updateContract(Contract u);
-	Contract retrieveContract(String id);
+	Optional<Contract> retrieveContract(String id);
 }
