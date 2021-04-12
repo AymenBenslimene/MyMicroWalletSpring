@@ -24,7 +24,7 @@ public class AccountServiceImpl implements IAccountService{
 	public Account addAccount(Account u) {
 		// TODO Auto-generated method stub
 		AccountRepo.save(u);
-		return null;
+		return u;
 	}
 
 	@Override
@@ -42,11 +42,12 @@ public class AccountServiceImpl implements IAccountService{
 	}
 
 	@Override
-	public Optional<Account> retrieveAccount(String id) {
+	public Account retrieveAccount(String id) {
 		// TODO Auto-generated method stub
 		int AccountId = Integer.parseInt(id);
 		
-		return AccountRepo.findById(AccountId);
+		return AccountRepo.retrieveAccountById(AccountId);
 	}
 
+	
 }

@@ -123,6 +123,13 @@ public long countLoans(){
 }
 
 
+public void InsertandAttachLoanstoAccount(String accountid, String loanid){
+	int aid=Integer.parseInt(accountid);
+	int  lid=Integer.parseInt(loanid);
+	LoansRepo.InsertandAttachLoanstoAccount(aid, lid);
+
+}
+
 }
 
 

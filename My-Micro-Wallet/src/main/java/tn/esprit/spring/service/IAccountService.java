@@ -11,7 +11,7 @@ public interface IAccountService {
 	 Account addAccount(Account u);
 	void deleteAccount(String id);
 	Account updateAccount(Account u);
-	Optional<Account> retrieveAccount(String id);
+	Account retrieveAccount(String id);
 	 
 	 
 }

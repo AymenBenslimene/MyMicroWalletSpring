@@ -3,6 +3,7 @@ package tn.esprit.spring.dao.repository;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -54,5 +55,11 @@ public interface LoansRepository extends CrudRepository < Loans, Integer> {
 	
 	// retrieve Contract 
 	//@Query("Select u From Loans u Where u.loan")
+	
+	///////Adding to non entity table ( Association )
+	@Modifying
+	@Query(value = "INSERT INTO account_loans (account_account_id, loans_loan_id) VALUES (:accountid, :loanid)", nativeQuery = true)
+	void InsertandAttachLoanstoAccount(@Param("accountid") int accountid, @Param("loanid") int loanid);
+	
 	
 }

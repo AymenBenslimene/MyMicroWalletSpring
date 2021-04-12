@@ -149,6 +149,29 @@ public class Account implements Serializable{
 	public void setLoans(Set<Loans> loans) {
 		this.loans = loans;
 	}
+	public Account(int account_ID, Date creation_Date, Date expire, double balance, double min_Balance,
+			double max_Balance, double bank_verification_number, double rIB, Set<Loans> loans,
+			Set<Transaction> transaction) {
+		super();
+		Account_ID = account_ID;
+		Creation_Date = creation_Date;
+		this.expire = expire;
+		Balance = balance;
+		Min_Balance = min_Balance;
+		Max_Balance = max_Balance;
+		this.bank_verification_number = bank_verification_number;
+		RIB = rIB;
+		this.loans = loans;
+		this.transaction = transaction;
+	}
+	public Account(int account_ID, double balance) {
+		super();
+		Account_ID = account_ID;
+		Balance = balance;
+	}
+	public Account() {
+		super();
+	}
 	
 	
 	

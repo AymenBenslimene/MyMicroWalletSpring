@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,6 +49,42 @@ public class LoansRestControlImpl {
 	return "Myloan";
 	
 	}
+	
+	//////////////////////////////////////////////LoanRequest
+    //@PostMapping("/Loans/add/{Id}")
+    @RequestMapping(value="/loan-demand/{Accountid}",method=RequestMethod.POST)
+   //@ResponseBody
+    //public Loans SetLoan(@RequestBody int id ){
+    //public Loans SetLoan(@PathVariable("Id") int id) {
+    //@ResponseBody
+    @ResponseBody
+    public String DemandLoan(@RequestBody Loans u, @PathVariable String Accountid){
+		//Loans u = new Loans();
+		//u.Set_Loan_Id(100);
+		//u.Set_Loan_Amount(10);
+    	//u.setLoan_purchase(1200);
+    	
+    	///Loan Demand Settlement
+    	u.setLoan_Status(Loan_Status.Open);
+    	u.setRequestDate(new Date());
+    	u.setUltimate_decision(Ultimate_Decision.In_Treatment);
+    	Loans_Service.addLoans(u);
+    	//// attach loan to account 
+    	Account Demander=Account_Service.retrieveAccount(Accountid);
+    	Set<Loans> setloans=Demander.getLoans();
+    	setloans.add(u);
+    	Demander.setLoans(setloans);
+    	Account_Service.updateAccount(Demander);
+    	/////initial Calculation 
+    	
+    	
+    	//Loans_Service.
+		return  "Your Loans Request is sent to our Agent and will be treated soon, Thank you";
+		
+    	
+    }
+	
+	
 	/*
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String users(User user, Model model) {
@@ -150,29 +188,7 @@ public class LoansRestControlImpl {
         userService.deleteById(userId);
     }*/
     
-    //@PostMapping("/Loans/add/{Id}")
-    @RequestMapping(value="/loan-demand",method=RequestMethod.POST)
-   //@ResponseBody
-    //public Loans SetLoan(@RequestBody int id ){
-    //public Loans SetLoan(@PathVariable("Id") int id) {
-    //@ResponseBody
-    @ResponseBody
-    public String DemandLoan(@RequestBody Loans u){
-		//Loans u = new Loans();
-		//u.Set_Loan_Id(100);
-		//u.Set_Loan_Amount(10);
-    	//u.setLoan_purchase(1200);
-    	u.setContract(null);
-    	u.setLoan_Status(Loan_Status.Open);
-    	Date d = null;
-    	u.setRequestDate(d);
-    	u.setUltimate_decision(Ultimate_Decision.In_Treatment);
-    	Loans_Service.addLoans(u);
-		//Loans_Service.
-		return  "Your Loans Request is sent to our Agent and will be treated soon, Thank you";
-		
-    	
-    }
+
     @RequestMapping("/loanAddTesting")
     public Loans AddLoan(){
   		Loans u = new Loans();
